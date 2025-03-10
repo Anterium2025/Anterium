@@ -319,7 +319,8 @@
             const footerSection = document.querySelector('footer');
 
             // Функция для проверки, виден ли элемент на экране
-            function isElementInViewport(el) {if (!el) return false;
+            function isElementInViewport(el) {
+             if(!el) return false;
                 const rect = el.getBoundingClientRect();
                 return (
                     rect.top >= 0 &&
@@ -348,7 +349,7 @@
             }
 
             // Анимация для Footer
-            if (isElementInViewport(footerSection) && footerSection.style.opacity === '0') {
+         if (isElementInViewport(footerSection) && footerSection.style.opacity === '0') {
                 footerSection.classList.add('animate__animated', 'animate__fadeIn');
                 footerSection.style.opacity = 1;
             }
