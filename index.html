@@ -6,34 +6,30 @@
     <title>Энтериум Банк (Не настоящий)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        /* Общие стили */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
-            /* Градиентный фон */
             background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
             background-attachment: fixed;
-            /* Сделаем адаптивным */
-            min-height: 100vh; /* Занимаем всю высоту экрана */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
         .container {
-            width: 90%; /* Увеличим ширину на телефонах */
-            max-width: 1200px; /* Максимальная ширина на больших экранах */
+            width: 90%;
+            max-width: 1200px;
             margin: auto;
             overflow: hidden;
         }
 
-        /* Стили шапки сайта */
         header {
             background-color: rgba(51, 51, 51, 0.9);
             color: #fff;
-            padding: 15px 0; /* Уменьшим отступы */
-            min-height: 50px; /* Уменьшим высоту шапки */
+            padding: 15px 0;
+            min-height: 50px;
             border-bottom: 3px solid #e8491d;
             position: relative;
         }
@@ -41,7 +37,7 @@
         header h1 {
             float: left;
             margin: 0;
-            font-size: 24px; /* Уменьшим размер шрифта */
+            font-size: 24px;
         }
 
         header nav {
@@ -52,76 +48,77 @@
         header ul {
             margin: 0;
             padding: 0;
-            list-style: none; /* Уберем маркеры списка */
+            list-style: none;
         }
 
         header li {
             display: inline-block;
-            margin-left: 15px; /* Увеличим отступы между ссылками */
+            margin-left: 15px;
         }
 
         header a {
             color: #fff;
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 14px; /* Уменьшим размер шрифта */
+            font-size: 14px;
         }
 
-        /* Стили секции Hero */
         #hero {
             background-color: rgba(255, 255, 255, 0.8);
             text-align: center;
             color: #333;
-            padding: 50px 20px; /* Уменьшим отступы */
+            padding: 50px 20px;
             margin-top: 20px;
             border-radius: 10px;
+            opacity: 0;
         }
 
         #hero h2 {
-            font-size: 28px; /* Уменьшим размер шрифта */
+            font-size: 28px;
             margin-bottom: 15px;
         }
 
         #hero p {
-            font-size: 16px; /* Уменьшим размер шрифта */
+            font-size: 16px;
             line-height: 1.4;
         }
 
         .button {
             background-color: #e8491d;
             color: #fff;
-            padding: 10px 20px; /* Уменьшим отступы */
+            padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 16px; /* Уменьшим размер шрифта */
+            font-size: 16px;
             display: inline-block;
             margin-top: 15px;
         }
 
-        /* Стили секции Услуги */
         #services {
             padding: 30px 0;
             background-color: rgba(255, 255, 255, 0.8);
             margin-top: 20px;
             border-radius: 10px;
+            opacity: 0;
         }
 
         #services h2 {
             text-align: center;
             margin-bottom: 20px;
-            font-size: 24px; /* Уменьшим размер шрифта */
+            font-size: 24px;
         }
 
         .service {
             float: left;
             width: 30%;
-            padding: 15px; /* Уменьшим отступы */
+            padding: 15px;
             border: 1px solid #ddd;
             margin-right: 3%;
             text-align: center;
             border-radius: 5px;
             background-color: #fff;
-            box-sizing: border-box; /* Важно для правильного расчета ширины */
+            box-sizing: border-box;
+            opacity: 0;
         }
 
         .service:last-child {
@@ -129,25 +126,24 @@
         }
 
         .service h3 {
-            font-size: 18px; /* Уменьшим размер шрифта */
+            font-size: 18px;
         }
 
         .service p {
-            font-size: 14px; /* Уменьшим размер шрифта */
+            font-size: 14px;
         }
 
-        /* Стили подвала */
         footer {
             background-color: rgba(51, 51, 51, 0.9);
             color: #fff;
             text-align: center;
-            padding: 15px; /* Уменьшим отступы */
-            margin-top: auto; /* Прижимаем к низу */
+            padding: 15px;
+            margin-top: auto;
             border-radius: 10px;
-            font-size: 14px; /* Уменьшим размер шрифта */
+            font-size: 14px;
+            opacity: 0;
         }
 
-        /* Стили предупреждения */
         #disclaimer {
             background-color: #ffcccc;
             color: #800000;
@@ -156,25 +152,22 @@
             font-weight: bold;
         }
 
-        /* Стили модального окна */
         .modal {
-            display: none; /* Скрыто по умолчанию */
-            position: fixed; /* Фиксированное положение */
-            z-index: 1; /* Поверх всего */
+            display: none;
+            position: fixed;
+            z-index: 1;
             left: 0;
             top: 0;
-            width: 100%; /* На всю ширину */
-            height: 100%; /* На всю высоту */
-            overflow: auto; /* Включить прокрутку, если нужно */
-            background-color: rgba(0,0,0,0.4); /* Полупрозрачный фон */
-        }
-
-        .modal-content {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }.modal-content {
             background-color: #fefefe;
-            margin: 15% auto; /* 15% сверху и по центру */
+            margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%; /* Можно настроить ширину */
+            width: 80%;
             border-radius: 10px;
             position: relative;
         }
@@ -193,51 +186,61 @@
         .close:hover,
         .close:focus {
             color: black;
-            text-decoration: none;
+        }
+
+        .contact-button {
+            text-align: center;
+            margin-top: 20px;
+            clear: both;
+        }
+
+        button {
+            padding: 10px 25px;
+            background: #e8491d;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background 0.3s ease;
         }
 
-        /* Изначально скрываем контент секций */
-        #hero, #services, footer {
-            opacity: 0;
+        button:hover {
+            background: #ff6b4a;
         }
 
-        /* Адаптивные стили для телефонов */
         @media (max-width: 768px) {
             .container {
-                width: 95%; /* Еще больше ширины на телефонах */
+                width: 95%;
             }
 
             header h1 {
-                font-size: 20px; /* Еще меньше размер шрифта */
+                font-size: 20px;
             }
 
             header li {
-                display: block; /* Ссылки в столбик */
-                margin: 5px 0; /* Отступы сверху и снизу */
+                display: block;
+                margin: 5px 0;
             }
 
             header nav {
-                float: none; /* Убираем обтекание */
-                text-align: center; /* Центр
-ируем ссылки */
+                float: none;
+                text-align: center;
             }
 
             .service {
-                width: 100%; /* Занимаем всю ширину */
-                margin-right: 0; /* Убираем отступ справа */
-                margin-bottom: 20px; /* Добавляем отступ снизу */
-                float: none; /* Убираем обтекание */
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+                float: none;
             }
 
             .service:last-child {
-                margin-bottom: 0; /* Убираем отступ у последнего элемента */
+                margin-bottom: 0;
             }
         }
     </style>
 </head>
 <body>
-
     <div id="disclaimer">
         Внимание! Это вымышленный сайт банка, созданный в развлекательных целях. Мы не являемся настоящим финансовым учреждением. Ваши средства здесь не хранятся!
     </div>
@@ -260,7 +263,7 @@
         <div class="container">
             <h2>Ваш надежный партнер в мире финансов</h2>
             <p>Мы предлагаем широкий спектр банковских услуг для частных и корпоративных клиентов.</p>
-            <a href="#" class="button" onclick="openModal()">Узнать больше</a> <!--Кнопка "Узнать больше"-->
+            <a href="#" class="button" onclick="openModal()">Узнать больше</a>
         </div>
     </section>
 
@@ -279,7 +282,9 @@
                 <h3>Инвестиции</h3>
                 <p>Персональные инвестиционные решения для достижения ваших финансовых целей.</p>
             </div>
-            <button onclick="showPhoneNumber()">Узнать телефон</button>
+            <div class="contact-button">
+                <button onclick="showPhoneNumber()">Узнать телефон</button>
+            </div>
         </div>
     </section>
 
@@ -289,7 +294,6 @@
         </div>
     </footer>
 
-    <!-- Модальное окно -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -312,47 +316,48 @@
             document.getElementById("myModal").style.display = "none";
         }
 
-        // Анимация при прокрутке
-        window.addEventListener('scroll', function() {
-            const heroSection = document.getElementById('hero');
-            const servicesSection = document.getElementById('services');
-            const footerSection = document.querySelector('footer');
+        function isElementInViewport(el) {
+            if (!el) return false;
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top <= window.innerHeight &&
+                rect.bottom >= 0 &&
+                rect.left <= window.innerWidth &&
+                rect.right >= 0
+            );
+        }
 
-            // Функция для проверки, виден ли элемент на экране
-            function isElementInViewport(el) {
-             if(!el) return false;
-                const rect = el.getBoundingClientRect();
-                return (
-                    rect.top >= 0 &&
-                    rect.left >= 0 &&
-                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                );
-            }
+        function triggerAnimations() {
+            const elementsToAnimate = [
+                {element: document.getElementById('hero'), animation: 'animate__fadeIn'},
+                {element: document.getElementById('services'), animation: 'animate__fadeInUp'},
+                {element: document.querySelector('footer'), animation: 'animate__fadeIn'}
+            ];
 
-            // Анимация для секции Hero
-            if (isElementInViewport(heroSection) && heroSection.style.opacity === '0') {
-                heroSection.classList.add('animate__animated', 'animate__fadeIn');
-                heroSection.style.opacity = 1; // Делаем видимым после анимации
-            }
+            elementsToAnimate.forEach(item => {
+                if (isElementInViewport(item.element) {
+                    if (item.element.style.opacity === '0') {
+                        item.element.classList.add('animate__animated', item.animation);
+                        item.element.style.opacity = '1';
+                    }
+                }
+            });
 
-            // Анимация для секции Услуги
-            if (isElementInViewport(servicesSection) && servicesSection.style.opacity === '0') {
-                servicesSection.classList.add('animate__animated', 'animate__fadeInUp');
-                servicesSection.style.opacity = 1;
+            const services = document.querySelectorAll('#services .service');
+            services.forEach((service, index) => {
+                if (isElementInViewport(service) {
+                    if (service.style.opacity === '0') {
+                        service.classList.add('animateanimated', 'animateslideInLeft');
+                        service.style.animationDelay = (index * 0.2) + 's';
+                        service.style.opacity = '1';
+                    }
+                }
+            });
+        }
 
-                const services = document.querySelectorAll('#services .service');
-                services.forEach((service, index) => {
-                    service.classList.add('animate__animated', 'animate__slideInLeft');
-                    service.style.animationDelay = (index * 0.2) + 's';
-                });
-            }
-
-            // Анимация для Footer
-         if (isElementInViewport(footerSection) && footerSection.style.opacity === '0') {
-                footerSection.classList.add('animate__animated', 'animate__fadeIn');
-                footerSection.style.opacity = 1;
-            }
+        window.addEventListener('DOMContentLoaded', function() {
+            triggerAnimations();
+            window.addEventListener('scroll', triggerAnimations);
         });
     </script>
 </body>
