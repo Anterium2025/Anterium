@@ -15,10 +15,15 @@
             /* Градиентный фон */
             background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
             background-attachment: fixed;
+            /* Сделаем адаптивным */
+            min-height: 100vh; /* Занимаем всю высоту экрана */
+            display: flex;
+            flex-direction: column;
         }
 
         .container {
-            width: 80%;
+            width: 90%; /* Увеличим ширину на телефонах */
+            max-width: 1200px; /* Максимальная ширина на больших экранах */
             margin: auto;
             overflow: hidden;
         }
@@ -27,37 +32,39 @@
         header {
             background-color: rgba(51, 51, 51, 0.9);
             color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
+            padding: 15px 0; /* Уменьшим отступы */
+            min-height: 50px; /* Уменьшим высоту шапки */
             border-bottom: 3px solid #e8491d;
+            position: relative;
+        }
+
+        header h1 {
+            float: left;
+            margin: 0;
+            font-size: 24px; /* Уменьшим размер шрифта */
+        }
+
+        header nav {
+            float: right;
+            margin-top: 0;
+        }
+
+        header ul {
+            margin: 0;
+            padding: 0;
+            list-style: none; /* Уберем маркеры списка */
+        }
+
+        header li {
+            display: inline-block;
+            margin-left: 15px; /* Увеличим отступы между ссылками */
         }
 
         header a {
             color: #fff;
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 16px;
-        }
-
-        header ul {
-            margin: 0;
-            padding: 0;
-        }
-
-        header li {
-            float: left;
-            display: inline;
-            padding: 0 20px 0 20px;
-        }
-
-        header nav {
-            float: right;
-            margin-top: 10px;
-        }
-
-        header h1 {
-            float: left;
-            margin: 0;
+            font-size: 14px; /* Уменьшим размер шрифта */
         }
 
         /* Стили секции Hero */
@@ -65,31 +72,30 @@
             background-color: rgba(255, 255, 255, 0.8);
             text-align: center;
             color: #333;
-            padding-top: 100px;
-            padding-bottom: 100px;
+            padding: 50px 20px; /* Уменьшим отступы */
             margin-top: 20px;
             border-radius: 10px;
         }
 
         #hero h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 28px; /* Уменьшим размер шрифта */
+            margin-bottom: 15px;
         }
 
         #hero p {
-            font-size: 18px;
-            line-height: 1.6;
+            font-size: 16px; /* Уменьшим размер шрифта */
+            line-height: 1.4;
         }
 
         .button {
             background-color: #e8491d;
             color: #fff;
-            padding: 12px 24px;
+            padding: 10px 20px; /* Уменьшим отступы */
             text-decoration: none;
             border-radius: 5px;
-            font-size: 18px;
+            font-size: 16px; /* Уменьшим размер шрифта */
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         /* Стили секции Услуги */
@@ -99,24 +105,35 @@
             margin-top: 20px;
             border-radius: 10px;
         }
+
         #services h2 {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            font-size: 24px; /* Уменьшим размер шрифта */
         }
 
         .service {
             float: left;
             width: 30%;
-            padding: 20px;
+            padding: 15px; /* Уменьшим отступы */
             border: 1px solid #ddd;
             margin-right: 3%;
             text-align: center;
             border-radius: 5px;
             background-color: #fff;
+            box-sizing: border-box; /* Важно для правильного расчета ширины */
         }
 
         .service:last-child {
             margin-right: 0;
+        }
+
+        .service h3 {
+            font-size: 18px; /* Уменьшим размер шрифта */
+        }
+
+        .service p {
+            font-size: 14px; /* Уменьшим размер шрифта */
         }
 
         /* Стили подвала */
@@ -124,9 +141,10 @@
             background-color: rgba(51, 51, 51, 0.9);
             color: #fff;
             text-align: center;
-            padding: 20px;
-            margin-top: 30px;
+            padding: 15px; /* Уменьшим отступы */
+            margin-top: auto; /* Прижимаем к низу */
             border-radius: 10px;
+            font-size: 14px; /* Уменьшим размер шрифта */
         }
 
         /* Стили предупреждения */
@@ -138,7 +156,7 @@
             font-weight: bold;
         }
 
-        /*Стили модального окна*/
+        /* Стили модального окна */
         .modal {
             display: none; /* Скрыто по умолчанию */
             position: fixed; /* Фиксированное положение */
@@ -182,6 +200,39 @@
         /* Изначально скрываем контент секций */
         #hero, #services, footer {
             opacity: 0;
+        }
+
+        /* Адаптивные стили для телефонов */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%; /* Еще больше ширины на телефонах */
+            }
+
+            header h1 {
+                font-size: 20px; /* Еще меньше размер шрифта */
+            }
+
+            header li {
+                display: block; /* Ссылки в столбик */
+                margin: 5px 0; /* Отступы сверху и снизу */
+            }
+
+            header nav {
+                float: none; /* Убираем обтекание */
+                text-align: center; /* Центр
+ируем ссылки */
+            }
+
+            .service {
+                width: 100%; /* Занимаем всю ширину */
+                margin-right: 0; /* Убираем отступ справа */
+                margin-bottom: 20px; /* Добавляем отступ снизу */
+                float: none; /* Убираем обтекание */
+            }
+
+            .service:last-child {
+                margin-bottom: 0; /* Убираем отступ у последнего элемента */
+            }
         }
     </style>
 </head>
@@ -227,7 +278,7 @@
             <div class="service">
                 <h3>Инвестиции</h3>
                 <p>Персональные инвестиционные решения для достижения ваших финансовых целей.</p>
-</div>
+            </div>
             <button onclick="showPhoneNumber()">Узнать телефон</button>
         </div>
     </section>
@@ -243,8 +294,8 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Узнайте больше об Энтериум Банке (Не настоящий!)</h2>
-            <p>Мы - команда энтузиастов, решивших создать этот сайт в качестве забавного проекта.  Мы не работаем в банковской сфере и не оказываем финансовых услуг.  Если вы ищете настоящий банк, пожалуйста, обратитесь к лицензированным финансовым учреждениям.</p>
-            <p>Надеемся, вам понравилось наше творчество!</p>
+            <p>Наш вымышленный банк – это больше, чем просто сайт! Мы – команда энтузиастов, вдохновленных идеей создания уникального и безопасного (в шутку, конечно) финансового пространства. Наша цель – подарить вам улыбку и позитивные эмоции, пока вы исследуете возможности "банковских" услуг в нашей забавной интерпретации.</p>
+            <p>Мы надеемся, вам понравится наше творчество и вы оцените наш (выдуманный) подход к банковскому делу! </p>
         </div>
     </div>
 
@@ -268,8 +319,7 @@
             const footerSection = document.querySelector('footer');
 
             // Функция для проверки, виден ли элемент на экране
-            function isElementInViewport(el) {
-                if (!el) return false;
+            function isElementInViewport(el) {if (!el) return false;
                 const rect = el.getBoundingClientRect();
                 return (
                     rect.top >= 0 &&
