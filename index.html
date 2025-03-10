@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Энтериум Банк (Не настоящий)</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,228 +21,150 @@
         .container {
             width: 90%;
             max-width: 1200px;
-            margin: auto;
-            overflow: hidden;
+            margin: 0 auto;
+            padding: 20px 0;
         }
 
+        /* Шапка */
         header {
-            background-color: rgba(51, 51, 51, 0.9);
+            background: rgba(51, 51, 51, 0.9);
             color: #fff;
             padding: 15px 0;
-            min-height: 50px;
             border-bottom: 3px solid #e8491d;
-            position: relative;
         }
 
-        header h1 {
-            float: left;
-            margin: 0;
-            font-size: 24px;
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        header nav {
-            float: right;
-            margin-top: 0;
-        }
-
-        header ul {
+        nav ul {
+            list-style: none;
             margin: 0;
             padding: 0;
-            list-style: none;
+            display: flex;
+            gap: 25px;
         }
 
-        header li {
-            display: inline-block;
-            margin-left: 15px;
-        }
-
-        header a {
+        nav a {
             color: #fff;
             text-decoration: none;
-            text-transform: uppercase;
-            font-size: 14px;
+            font-size: 16px;
+            transition: color 0.3s;
         }
 
+        nav a:hover {
+            color: #e8491d;
+        }
+
+        /* Основной контент */
         #hero {
-            background-color: rgba(255, 255, 255, 0.8);
             text-align: center;
-            color: #333;
-            padding: 50px 20px;
-            margin-top: 20px;
-            border-radius: 10px;
+            padding: 80px 0;
             opacity: 0;
         }
 
         #hero h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-
-        #hero p {
-            font-size: 16px;
-            line-height: 1.4;
+            font-size: 2.5em;
+            margin-bottom: 20px;
         }
 
         .button {
-            background-color: #e8491d;
+            display: inline-block;
+            padding: 12px 30px;
+            background: #e8491d;
             color: #fff;
-            padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 16px;
-            display: inline-block;
-            margin-top: 15px;
+            margin-top: 20px;
+            transition: transform 0.3s;
         }
 
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Услуги */
         #services {
-            padding: 30px 0;
-            background-color: rgba(255, 255, 255, 0.8);
-            margin-top: 20px;
-            border-radius: 10px;
+            padding: 60px 0;
             opacity: 0;
         }
 
-        #services h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 24px;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .service {
-            float: left;
-            width: 30%;
-            padding: 15px;
-            border: 1px solid #ddd;
-            margin-right: 3%;
-            text-align: center;
-            border-radius: 5px;
-            background-color: #fff;
-            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             opacity: 0;
         }
 
-        .service:last-child {
-            margin-right: 0;
-        }
-
-        .service h3 {
-            font-size: 18px;
-        }
-
-        .service p {
-            font-size: 14px;
-        }
-
+        /* Футер */
         footer {
-            background-color: rgba(51, 51, 51, 0.9);
+            background: rgba(51, 51, 51, 0.9);
             color: #fff;
             text-align: center;
-            padding: 15px;
+            padding: 25px 0;
             margin-top: auto;
-            border-radius: 10px;
-            font-size: 14px;
             opacity: 0;
         }
 
-        #disclaimer {
-            background-color: #ffcccc;
-            color: #800000;
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-        }
-
+        /* Модальное окно */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-        }.modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
             border-radius: 10px;
+            max-width: 500px;
             position: relative;
         }
 
         .close {
             position: absolute;
-            right: 10px;
-            top: 0;
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
             cursor: pointer;
         }
 
-        .close:hover,
-        .close:focus {
-            color: black;
-        }
-
-        .contact-button {
-            text-align: center;
-            margin-top: 20px;
-            clear: both;
-        }
-
-        button {
-            padding: 10px 25px;
-            background: #e8491d;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        button:hover {
-            background: #ff6b4a;
-        }
-
+        /* Адаптивность */
         @media (max-width: 768px) {
-            .container {
-                width: 95%;
+            header .container {
+                flex-direction: column;
+                gap: 15px;
             }
 
-            header h1 {
-                font-size: 20px;
-            }
-
-            header li {
-                display: block;
-                margin: 5px 0;
-            }
-
-            header nav {
-                float: none;
+            nav ul {
+                flex-direction: column;
                 text-align: center;
-            }
-
-            .service {
-                width: 100%;
-                margin-right: 0;
-                margin-bottom: 20px;
-                float: none;
-            }
-
-            .service:last-child {
-                margin-bottom: 0;
+                gap: 15px;
+            }#hero h2 {
+                font-size: 2em;
             }
         }
     </style>
 </head>
 <body>
-    <div id="disclaimer">
-        Внимание! Это вымышленный сайт банка, созданный в развлекательных целях. Мы не являемся настоящим финансовым учреждением. Ваши средства здесь не хранятся!
+    <div style="background: #ffcccc; color: #800000; padding: 15px; text-align: center;">
+        Внимание! Это вымышленный сайт. Мы не являемся настоящим банком.
     </div>
 
     <header>
@@ -259,105 +181,102 @@
         </div>
     </header>
 
-    <section id="hero">
-        <div class="container">
-            <h2>Ваш надежный партнер в мире финансов</h2>
-            <p>Мы предлагаем широкий спектр банковских услуг для частных и корпоративных клиентов.</p>
-            <a href="#" class="button" onclick="openModal()">Узнать больше</a>
-        </div>
-    </section>
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h2>Ваш надежный финансовый партнер</h2>
+                <p>Инновационные решения для вашего успеха</p>
+                <a href="#services" class="button">Узнать больше</a>
+            </div>
+        </section>
 
-    <section id="services">
-        <div class="container">
-            <h2>Наши услуги</h2>
-            <div class="service">
-                <h3>Кредиты</h3>
-                <p>Выгодные кредитные программы для любых целей.</p>
+        <section id="services">
+            <div class="container">
+                <h2>Наши услуги</h2>
+                <div class="services-grid">
+                    <div class="service">
+                        <h3>Кредиты</h3>
+                        <p>Гибкие условия кредитования для физических и юридических лиц</p>
+                    </div>
+                    <div class="service">
+                        <h3>Вклады</h3>
+                        <p>Выгодные процентные ставки и надежное хранение средств</p>
+                    </div>
+                    <div class="service">
+                        <h3>Инвестиции</h3>
+                        <p>Персональные инвестиционные стратегии и консультации</p>
+                    </div>
+                </div>
             </div>
-            <div class="service">
-                <h3>Депозиты</h3>
-                <p>Высокие процентные ставки и надежное хранение ваших сбережений.</p>
-            </div>
-            <div class="service">
-                <h3>Инвестиции</h3>
-                <p>Персональные инвестиционные решения для достижения ваших финансовых целей.</p>
-            </div>
-            <div class="contact-button">
-                <button onclick="showPhoneNumber()">Узнать телефон</button>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Энтериум Банк. Все права защищены.</p>
+            <p>© 2024 Энтериум Банк. Все права защищены.</p>
         </div>
     </footer>
 
-    <div id="myModal" class="modal">
+    <!-- Модальное окно -->
+    <div id="modal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Узнайте больше об Энтериум Банке (Не настоящий!)</h2>
-            <p>Наш вымышленный банк – это больше, чем просто сайт! Мы – команда энтузиастов, вдохновленных идеей создания уникального и безопасного (в шутку, конечно) финансового пространства. Наша цель – подарить вам улыбку и позитивные эмоции, пока вы исследуете возможности "банковских" услуг в нашей забавной интерпретации.</p>
-            <p>Мы надеемся, вам понравится наше творчество и вы оцените наш (выдуманный) подход к банковскому делу! </p>
+            <span class="close">&times;</span>
+            <h2>О нас</h2>
+            <p>Мы - инновационная финтех-компания, предлагающая уникальные финансовые решения.</p>
         </div>
     </div>
 
     <script>
-        function showPhoneNumber() {
-            alert("Наш номер телефона: 9(999) 99-88-880");
-        }
+        // Анимации
+        const animateElements = () => {
+            const elements = [
+                { element: document.querySelector('#hero'), animation: 'fadeIn' },
+                { element: document.querySelector('#services'), animation: 'fadeInUp' },
+                { element: document.querySelector('footer'), animation: 'fadeIn' },
+                ...document.querySelectorAll('.service')
+            ];
 
-        function openModal() {
-            document.getElementById("myModal").style.display = "block";
-        }
+            elements.forEach((el, index) => {
+                if (typeof el === 'object') {
+                    const { element, animation } = el;
+                    if (isElementVisible(element) && element.style.opacity !== '1') {
+                        element.style.opacity = '1';
+                        element.classList.add('animate__animated', animate__${animation});
+                    }
+                } else {
+                    if (isElementVisible(el) && el.style.opacity !== '1') {
+                        el.style.opacity = '1';
+                        el.classList.add('anianimated', 'animatete__fadeInLeft');
+                        el.style.animationDelay = ${index * 0.2}s;
+                    }
+                }
+            });
+        };
 
-        function closeModal() {
-            document.getElementById("myModal").style.display = "none";
-        }
-
-        function isElementInViewport(el) {
+        const isElementVisible = (el) => {
             if (!el) return false;
             const rect = el.getBoundingClientRect();
             return (
-                rect.top <= window.innerHeight &&
+                rect.top <= window.innerHeight * 0.75 &&
                 rect.bottom >= 0 &&
                 rect.left <= window.innerWidth &&
                 rect.right >= 0
             );
-        }
+        };
 
-        function triggerAnimations() {
-            const elementsToAnimate = [
-                {element: document.getElementById('hero'), animation: 'animate__fadeIn'},
-                {element: document.getElementById('services'), animation: 'animate__fadeInUp'},
-                {element: document.querySelector('footer'), animation: 'animate__fadeIn'}
-            ];
-
-            elementsToAnimate.forEach(item => {
-                if (isElementInViewport(item.element) {
-                    if (item.element.style.opacity === '0') {
-                        item.element.classList.add('animate__animated', item.animation);
-                        item.element.style.opacity = '1';
-                    }
-                }
+        // Инициализация
+        window.addEventListener('DOMContentLoaded', () => {
+            animateElements();
+            window.addEventListener('scroll', animateElements);
+        });// Модальное окно
+        document.querySelectorAll('.button, nav a').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.getElementById('modal').style.display = 'flex';
             });
+        });
 
-            const services = document.querySelectorAll('#services .service');
-            services.forEach((service, index) => {
-                if (isElementInViewport(service) {
-                    if (service.style.opacity === '0') {
-                        service.classList.add('animateanimated', 'animateslideInLeft');
-                        service.style.animationDelay = (index * 0.2) + 's';
-                        service.style.opacity = '1';
-                    }
-                }
-            });
-        }
-
-        window.addEventListener('DOMContentLoaded', function() {
-            triggerAnimations();
-            window.addEventListener('scroll', triggerAnimations);
+        document.querySelector('.close').addEventListener('click', () => {
+            document.getElementById('modal').style.display = 'none';
         });
     </script>
 </body>
