@@ -1,108 +1,200 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- ... (все стили остаются без изменений) ... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Энтериум Банк (Не настоящий)</title>
     <style>
-        /* Добавляем новые стили для секции "О нас" */
-        #about {
-            padding: 50px 0;
-            background-color: rgba(255, 255, 255, 0.8);
+        /* Общие стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Градиентный фон */
+            background: linear-gradient(135deg, #e0f2f1, #b2dfdb); /* Мягкий градиент от светло-голубого к бирюзовому */
+            background-attachment: fixed; /* Фон остается на месте при прокрутке */
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Стили шапки сайта */
+        header {
+            background-color: rgba(51, 51, 51, 0.9); /* Полупрозрачный черный фон */
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: 3px solid #e8491d;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+
+        header h1 {
+            float: left;
+            margin: 0;
+        }
+
+        /* Стили секции Hero */
+        #hero {
+            background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+            text-align: center;
+            color: #333;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            margin-top: 20px; /* Отступ сверху */
+            border-radius: 10px; /* Скругленные углы */
+        }
+
+        #hero h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .button {
+            background-color: #e8491d;
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        /* Стили секции Услуги */
+        #services {
+            padding: 30px 0;
+            background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
             margin-top: 20px;
             border-radius: 10px;
-            display: none; /* Скрываем по умолчанию */
         }
 
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .about-content h2 {
-            color: #e8491d;
+        #services h2 {
             text-align: center;
             margin-bottom: 30px;
         }
 
-        .about-content p {
-            line-height: 1.6;
-            margin-bottom: 20px;
+        .service {
+            float: left;
+            width: 30%;
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin-right: 3%;
+            text-align: center;
+            border-radius: 5px;
+            background-color: #fff; /* Белый фон для карточек услуг */
+        }
+
+        .service:last-child {
+            margin-right: 0;
+        }
+
+        /* Стили подвала */
+        footer {
+            background-color: rgba(51, 51, 51, 0.9); /* Полупрозрачный черный фон */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+
+        /* Стили предупреждения */
+        #disclaimer {
+            background-color: #ffcccc;
+            color: #800000;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <!-- ... (остальная разметка без изменений до секции услуг) ... -->
+    <div id="disclaimer">
+        Внимание! Это вымышленный сайт банка, созданный в развлекательных целях. Мы не являемся настоящим финансовым учреждением. Ваши средства здесь не хранятся!
+    </div>
 
-    <section id="services">
+    <header>
         <div class="container">
-            <!-- ... (существующее содержимое услуг) ... -->
+            <h1>Энтериум Банк</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h2>Ваш надежный партнер в мире финансов</h2>
+            <p>Мы предлагаем широкий спектр банковских услуг для частных и корпоративных клиентов.</p>
+            <a href="#" class="button">Узнать больше</a>
         </div>
     </section>
 
-    <!-- Новая секция "О нас" -->
-    <section id="about">
+    <section id="services">
         <div class="container">
-            <div class="about-content">
-                <h2>О нашем банке</h2>
-                <p>Энтериум Банк - это современная финансовая организация, созданная для вашего удобства и безопасности. 
-                Несмотря на то, что мы являемся вымышленной компанией, мы стремимся предоставить максимально реалистичный 
-                опыт взаимодействия с банковскими услугами.</p>
-
-                <h3>Наша миссия</h3>
-                <p>Развивать финансовую грамотность населения через интерактивные инструменты и безопасную среду 
-                для обучения управлению личными финансами.</p>
-
-                <h3>Особенности:</h3>
-                <ul>
-                    <li>Виртуальные банковские продукты</li>
-                    <li>Образовательные материалы</li>
-                    <li>Безопасная тренировочная среда</li>
-                    <li>Инновационные финансовые инструменты</li>
-                </ul>
+            <h2>Наши услуги</h2>
+            <div class="service">
+                <h3>Кредиты</h3>
+                <p>Выгодные кредитные программы для любых целей.</p>
             </div>
+            <div class="service">
+                <h3>Депозиты</h3>
+                <p>Высокие процентные ставки и надежное хранение ваших сбережений.</p>
+            </div>
+            <div class="service">
+                <h3>Инвестиции</h3>
+                <p>Персональные инвестиционные решения для достижения ваших финансовых целей.</p>
+            </div>
+            <button onclick="showPhoneNumber()">Узнать телефон</button> <!--Кнопка-->
         </div>
     </section>
 
     <footer>
-        <!-- ... (существующий футер) ... -->
+        <div class="container">
+            <p>&copy; 2024 Энтериум Банк. Все права защищены.</p>
+        </div>
     </footer>
 
     <script>
-        // Обновленный скрипт
         function showPhoneNumber() {
             alert("Наш номер телефона: 9(999) 99-88-880");
-        }
-
-        // Добавляем обработчики для навигации
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const sections = document.querySelectorAll('section, footer');
-                
-                // Скрываем все секции
-                sections.forEach(section => section.style.display = 'none');
-                
-                // Показываем выбранную секцию
-                if(targetId === '#') {
-                    document.querySelector('#hero').style.display = 'block';
-                    document.querySelector('#services').style.display = 'block';
-                    document.querySelector('footer').style.display = 'block';
-                } else {
-                    document.querySelector(targetId).style.display = 'block';
-                }
-
-                // Особый случай для "О нас"
-                if(targetId === '#about') {
-                    document.querySelector('#about').style.display = 'block';
-                }
-            });
-        });
-
-        // Инициализация при загрузке
-        window.onload = function() {
-            document.querySelector('#about').style.display = 'none';
         }
     </script>
 </body>
